@@ -5,19 +5,24 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 
 import javax.net.ssl.*;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
-import java.util.Base64;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
  * 基于 OkHttp 的 HTTP 调用工具类
  * 支持忽略 SSL、JSON 自动序列化/反序列化
+ * 依赖：
+ * <dependency>
+ *    <groupId>com.squareup.okhttp3</groupId>
+ *    <artifactId>okhttp</artifactId>
+ *    <version>4.11.0</version>
+ * </dependency>
  */
 @Slf4j
 public class OkHttpUtil {
